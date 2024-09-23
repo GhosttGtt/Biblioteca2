@@ -10,12 +10,36 @@ using System.Windows.Forms;
 
 namespace Biblioteca
 {
+    
     public partial class ToastForm : Form
     {
         int toastX, toastY;
-        public ToastForm()
+        
+        public ToastForm(String type, string message)
         {
             InitializeComponent();
+           
+
+            lblTitle.Text = type;
+            lblMessage.Text = message;
+            switch (type) {
+                case "Exito":
+                    toastBorder.BackColor = Color.FromArgb(57, 155, 53);
+                    picIcon.Image = Properties.Resources.ok_32;
+                    break;
+                case "Error":
+                    toastBorder.BackColor = Color.FromArgb(227, 50, 45);
+                    picIcon.Image = Properties.Resources.cancel_32;
+                    break;
+                case "Informacion":
+                    toastBorder.BackColor = Color.FromArgb(18, 136, 191);
+                    picIcon.Image = Properties.Resources.info_32;
+                    break;
+                case "Alerta":
+                    toastBorder.BackColor = Color.FromArgb(245, 171, 35);
+                    picIcon.Image = Properties.Resources.alert_32;
+                    break;
+            }
         }
 
         private void ToastForm_Load(object sender, EventArgs e)
@@ -27,16 +51,54 @@ namespace Biblioteca
         {
             Position();
         }
+        
+        private void toastTimer_Tick(object sender, EventArgs e)
+        {
+            toastY -= 10;
+            this.Location = new Point(toastX, toastY);
+            if (toastY <= 1080)
+            {
+                toastTimer.Stop();
+                toastHide.Start();
+            }
+        }
+        int y = 100;
+        private void toastHide_Tick(object sender, EventArgs e)
+        {
+            y--;
+            if (y <= 0)
+            {
+                toastY += 1;
+                this.Location = new Point(toastX, toastY += 10);
+                if(toastY > 1081)
+                {
+                    toastHide.Stop();
+                    y = 100;
+                    this.Close();
+                }
+            }
+        }
         private void Position()
         {
             int ScreenWidth = Screen.PrimaryScreen.WorkingArea.Width;
             int ScreenHeight = Screen.PrimaryScreen.WorkingArea.Height;
 
             toastX = ScreenWidth - this.Width - 5;
-            toastY = ScreenHeight - this.Height - 5;
+            toastY = ScreenHeight - this.Height + 5;
 
             this.Location = new Point(toastX, toastY);
 
         }
+
+    }
+    public partial class showToast : Form
+    {
+        public showToast(string type, string message)
+        {
+            ToastForm toast = new ToastForm(type, message);
+            toast.Show();
+        }
+
+
     }
 }

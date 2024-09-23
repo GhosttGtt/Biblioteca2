@@ -40,12 +40,13 @@ namespace Biblioteca
             };
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("Ingrese un nombre.");
+                new showToast("Error", "Ingrese un nombre");
+                //MessageBox.Show("Ingrese un nombre.");
             }
             else {
                 Clases.Biblioteca.Miembros.Add(nuevoMiembro);
-                
-                MessageBox.Show("Miembro creado.");
+                new showToast("Exito", "Miembro creado");
+                //MessageBox.Show("Miembro creado.");
                 LimpiarFormulario();
                 CargarMiembros();
             }

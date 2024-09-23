@@ -22,6 +22,7 @@ namespace Biblioteca
             libroActual = libro;
             CargarDatosDelLibro();
         }
+        
         private void CargarDatosDelLibro()
         {
             txtTitulo.Text = libroActual.Titulo;
@@ -64,7 +65,7 @@ namespace Biblioteca
                 libroElectronico.TamanoArchivo = int.Parse(txtTamanioArchivo.Text);
                 libroElectronico.Formato = txtFormato.Text;
             }
-
+            new showToast("Exito", "Libro editado correctamente");
             // Indicar que la edición fue exitosa
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -72,6 +73,7 @@ namespace Biblioteca
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            new showToast("Informacion", "Se canceló la edición del libro");
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }

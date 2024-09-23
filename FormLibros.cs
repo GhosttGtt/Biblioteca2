@@ -20,8 +20,6 @@ namespace Biblioteca
 
             
         }
-        
-        
 
         private void CargarDatos()
         {
@@ -110,12 +108,15 @@ namespace Biblioteca
                 {
                     Clases.Libro LibroSeleccionado = (Libro)dgvLibros.SelectedRows[0].DataBoundItem;
                     Clases.Biblioteca.Libros.Remove(LibroSeleccionado);
-
+                    new showToast("Exito", "Libro eliminado correctamente");
                     ActualizarLibros();
                 }
+               
             }
             else {
-                MessageBox.Show("Seleccione un libro para eliminar.");
+                new showToast("Error", "Seleccione un libro para eliminar");
+                //MessageBox.Show("Seleccione un libro para eliminar.");
+
             }
         }
         private void ActualizarLibros()

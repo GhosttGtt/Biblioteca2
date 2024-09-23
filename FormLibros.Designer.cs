@@ -118,17 +118,22 @@
             // 
             // btnEditarLibro
             // 
+            btnEditarLibro.BackColor = Color.FromArgb(0, 192, 0);
+            btnEditarLibro.FlatAppearance.BorderSize = 0;
+            btnEditarLibro.FlatStyle = FlatStyle.Flat;
+            btnEditarLibro.ForeColor = Color.White;
             btnEditarLibro.Location = new Point(12, 409);
             btnEditarLibro.Name = "btnEditarLibro";
-            btnEditarLibro.Size = new Size(251, 23);
+            btnEditarLibro.Size = new Size(233, 23);
             btnEditarLibro.TabIndex = 23;
             btnEditarLibro.Text = "Editar libro";
-            btnEditarLibro.UseVisualStyleBackColor = true;
+            btnEditarLibro.UseVisualStyleBackColor = false;
             btnEditarLibro.Click += btnEditarLibro_Click;
             // 
             // btnEliminarlibro
             // 
             btnEliminarlibro.BackColor = Color.Red;
+            btnEliminarlibro.FlatAppearance.BorderSize = 0;
             btnEliminarlibro.FlatStyle = FlatStyle.Flat;
             btnEliminarlibro.ForeColor = Color.White;
             btnEliminarlibro.Location = new Point(251, 409);

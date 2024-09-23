@@ -61,11 +61,42 @@ namespace Biblioteca.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static string String1 {
+        internal static System.Drawing.Bitmap alert_32 {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                object obj = ResourceManager.GetObject("alert-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel_32 {
+            get {
+                object obj = ResourceManager.GetObject("cancel-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info_32 {
+            get {
+                object obj = ResourceManager.GetObject("info-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ok_32 {
+            get {
+                object obj = ResourceManager.GetObject("ok-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

@@ -11,6 +11,7 @@ namespace Biblioteca
             ApplicationConfiguration.Initialize();
             //Application.Run(new FormInicio());
             Application.Run(new Home());
+
         }
     }
 }

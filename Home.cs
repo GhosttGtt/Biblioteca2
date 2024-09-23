@@ -54,13 +54,14 @@ namespace Biblioteca
                 subMenu.Visible = false;
             }
         }
-
+        public void showToast(string type, string message)
+        {
+            ToastForm toast = new ToastForm(type, message);
+            toast.Show();
+        }
         private void buttonLibros_Click(object sender, EventArgs e)
         {
-            //ToastForm toast = new ToastForm();
-            //toast.Show();
-
-
+           
             showSubMenu(panelSubLibros);
         }
 
@@ -71,13 +72,14 @@ namespace Biblioteca
 
         private void buttonMiembos_Click(object sender, EventArgs e)
         {
-
+            
             showSubMenu(panelSubMiembros);
         }
 
         private void buttonPrestamos_Click(object sender, EventArgs e)
         {
-
+            
+            
             showSubMenu(panelSubPrestamos);
         }
         private Form? activeForm = null;

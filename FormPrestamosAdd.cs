@@ -64,12 +64,14 @@ namespace Biblioteca
 
                 if (libroSeleccionado == null || miembroSeleccionado == null)
                 {
-                    MessageBox.Show("Por favor, seleccione un libro y un miembro.");
+                    new showToast("Error", "Seleccione un libro y un miembro");
+                    //MessageBox.Show("Por favor, seleccione un libro y un miembro.");
                     return;
                 }
                 if (libroSeleccionado.EstaPrestado)
                 {
-                    MessageBox.Show("El libro ya está prestado.");
+                    new showToast("Alerta","El libro ya esta prestado, seleccione otro libro");
+                    //MessageBox.Show("El libro ya está prestado.");
                     return;
                 }
                 var nuevoPrestamo = new Prestamo(libroSeleccionado, miembroSeleccionado, dtpFechaPrestamo.Value);
@@ -78,12 +80,13 @@ namespace Biblioteca
                 libroSeleccionado.EstaPrestado = true;
                 miembroSeleccionado.HistorialPrestamos.Add(nuevoPrestamo);
 
-                
-                MessageBox.Show("Préstamo agregado exitosamente.");
+                new showToast("Exito", "Lubro prestado exitosamente");
+                //MessageBox.Show("Préstamo agregado exitosamente.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al agregar préstamo: {ex.Message}");
+                new showToast("Error", $"Error al agregar prestamo {ex.Message}");
+                //MessageBox.Show($"Error al agregar préstamo: {ex.Message}");
             }
         }
         

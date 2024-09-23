@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             toastBorder = new Panel();
             picIcon = new PictureBox();
             lblTitle = new Label();
             lblMessage = new Label();
+            toastTimer = new System.Windows.Forms.Timer(components);
+            toastHide = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)picIcon).BeginInit();
             SuspendLayout();
             // 
@@ -47,7 +50,7 @@
             // 
             // picIcon
             // 
-            
+            picIcon.Image = Properties.Resources.ok_32;
             picIcon.Location = new Point(12, 12);
             picIcon.Name = "picIcon";
             picIcon.Size = new Size(32, 32);
@@ -75,6 +78,17 @@
             lblMessage.TabIndex = 3;
             lblMessage.Text = "Message";
             // 
+            // toastTimer
+            // 
+            toastTimer.Enabled = true;
+            toastTimer.Interval = 20;
+            toastTimer.Tick += toastTimer_Tick;
+            // 
+            // toastHide
+            // 
+            toastHide.Interval = 20;
+            toastHide.Tick += toastHide_Tick;
+            // 
             // ToastForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -99,5 +113,7 @@
         private PictureBox picIcon;
         private Label lblTitle;
         private Label lblMessage;
+        private System.Windows.Forms.Timer toastTimer;
+        private System.Windows.Forms.Timer toastHide;
     }
 }

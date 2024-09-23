@@ -97,11 +97,13 @@ namespace Biblioteca
                 miembroSeleccionado.Nombre = txtNombreEdit.Text;
                 txtNombreEdit.Clear();
                 ActualizarMiembros();
-                MessageBox.Show("Nombre actualizado.");
+                new showToast("Exito","Nombre actualizado");
+                //MessageBox.Show("Nombre actualizado.");
 
             }
             else {
-                MessageBox.Show("Selecciona un nombre para actualizar.");
+                new showToast("Error", "Seleccione un miembro para actualizar");
+                //MessageBox.Show("Selecciona un nombre para actualizar.");
             }
         }
 
@@ -115,7 +117,8 @@ namespace Biblioteca
                 ActualizarMiembros();
             }
             else {
-                MessageBox.Show("Selecciona el nombre que quieres eliminar.");
+                new showToast("Error", "Seleccione un miembro para eliminar"); 
+                //MessageBox.Show("Selecciona el nombre que quieres eliminar.");
             }
         }
         private void ActualizarMiembros()
@@ -134,7 +137,7 @@ namespace Biblioteca
                 {
                     Clases.Miembro miembroSeleccionado = (Miembro)dgvMiembros.SelectedRows[0].DataBoundItem;
                     Clases.Biblioteca.Miembros.Remove(miembroSeleccionado);
-
+                    new showToast("Exito", "Miembro eliminado exitosamente");
                     ActualizarMiembros();
                
                 }
@@ -142,7 +145,8 @@ namespace Biblioteca
             }
             else
             {
-                MessageBox.Show("Selecciona un nombre para actualizar.");
+                new showToast("Error", "Seleccione un miembro para actualizar");
+                //MessageBox.Show("Selecciona un nombre para actualizar.");
             }
         }
     }

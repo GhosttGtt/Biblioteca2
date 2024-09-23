@@ -19,6 +19,11 @@ namespace Biblioteca
             
             InicializarComponentes();
         }
+        public void showToast(string type, string message)
+        {
+            ToastForm toast = new ToastForm(type, message);
+            toast.Show();
+        }
         private void InicializarComponentes()
         {
             
@@ -96,10 +101,12 @@ namespace Biblioteca
                     };
                     if (string.IsNullOrWhiteSpace(titulo) || string.IsNullOrWhiteSpace(autor) || string.IsNullOrWhiteSpace(txtAnioPublicacion.Text) || string.IsNullOrWhiteSpace(txtUbicacion.Text))
                     {
-                        MessageBox.Show("Por favor, complete todos los campos obligatorios.");
+                        showToast("Error", "Todos los campos son obligatorios");
+                        //MessageBox.Show("Por favor, complete todos los campos obligatorios.");
                         return;
                     }
                     else {
+
                         Clases.Biblioteca.Libros.Add(libroFisico);
                         LimpiarFormulario();
                     }
@@ -121,7 +128,8 @@ namespace Biblioteca
                     };
                     if (string.IsNullOrWhiteSpace(titulo) || string.IsNullOrWhiteSpace(autor) || string.IsNullOrWhiteSpace(txtAnioPublicacion.Text) || string.IsNullOrWhiteSpace(txtTamanoArchivo.Text)|| string.IsNullOrWhiteSpace(txtFormato.Text))
                     {
-                        MessageBox.Show("Por favor, complete todos los campos obligatorios.");
+                        showToast("Error", "Todos los campos son obligatorios");
+                        //MessageBox.Show("Por favor, complete todos los campos obligatorios.");
                         return;
                     }
                     else
@@ -131,13 +139,14 @@ namespace Biblioteca
                     }
                 }
 
-                
-                MessageBox.Show("Libro agregado exitosamente.");
+                showToast("Exito", "Libro agregado exitosamente");
+                //MessageBox.Show("Libro agregado exitosamente.");
                 
             }
             catch (Exception)
             {
-                MessageBox.Show($"Error al agregar el libro: Complete todos los campos");
+                showToast("Error", "Complete todos los campos");
+                //MessageBox.Show($"Error al agregar el libro: Complete todos los campos");
             }
             
         }
